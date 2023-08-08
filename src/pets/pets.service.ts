@@ -20,4 +20,10 @@ export class PetsService {
     // return [pet];
     return this.petsRepository.find();
   }
+
+  findOne(id: number): Promise<Pet> {
+    return this.petsRepository.findOneOrFail({
+      where: { id: id },
+    });
+  }
 }
